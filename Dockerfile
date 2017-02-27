@@ -3,7 +3,9 @@ MAINTAINER scottw
 
 WORKDIR /build
 
-RUN yum -y install gcc openssl-devel nginx \
+RUN yum -y update \
+    && yum -y upgrade \
+    && yum -y install gcc openssl-devel \
     && yum clean all \
     && rm /etc/ld.so.cache \
     && rm -rf /{root,tmp,var/cache/{ldconfig,yum}}/* \
